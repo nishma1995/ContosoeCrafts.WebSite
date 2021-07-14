@@ -1,5 +1,5 @@
 ﻿@page
-@using ContosoeCrafts.WebSite.Components
+@*@using ContosoeCrafts.WebSite.Components*@
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
@@ -9,7 +9,35 @@
     <h1 class="display-4">Contoso Crafts</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+<div class="card-columns">
+        @foreach (var item in Model.getRecords)
+        {
+            <div class="card">
+                <div class="card-img" style="background-image:url('@item.Image');"></div>
+                <div class="card-body">
+                    <h5 class="card-title">@item.Title</h5>
 
-@(await Html.RenderComponentAsync<ProductList>(RenderMode.ServerPrerendered));
+                </div>
+            </div>
+            <div class="card-footer">
+                @*<small class="text-muted">
+                    <button @onclick="(e=>SelectProduct(item.Id))"
+                            data-toggle="modal" data-target="#productModal" class="btn btn-primary">More Info</button>
+                </small>*@
 
-<script src="_framework/blazor.server.js"></script>
+
+            </div>
+        }
+    </div>
+
+   @* @(await Html.RenderComponentAsync<ProductList>*@
+   @* (RenderMode.ServerPrerendered));*@
+   @* @foreach (var item in Model.getRecords)*@
+   @* {*@
+     @*   <tr>*@
+           @* <td>@item.Id</td>*@
+            @*<td>@item.Maker</td>*@
+       @* </tr>*@
+   @* }*@
+
+   @* <script src="_framework/blazor.server.js"></script>*@

@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -30,7 +31,8 @@ namespace ContosoeCrafts.WebSite
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddControllers();
-            services.AddTransient<JsonFileProductsService>();
+            //services.AddTransient<JsonFileProductsService>();
+            services.AddDbContext<ConnectionDbClass>(options => options.UseSqlServer(Configuration.GetConnectionString("MyConnection")));
             
         }
 

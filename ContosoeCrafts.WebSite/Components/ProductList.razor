@@ -1,8 +1,8 @@
-﻿@using Microsoft.AspNetCore.Components.Web
+﻿@*@using Microsoft.AspNetCore.Components.Web
 @using ContosoeCrafts.WebSite.Models
 @using ContosoeCrafts.WebSite.Services
-@inject JsonFileProductsService ProductService
-<div class="card-columns">
+@inject JsonFileProductsService ProductService*@
+@*<div class="card-columns">
     @foreach (var item in ProductService.GetProducts())
     {
         <div class="card">
@@ -107,4 +107,4 @@
         ProductService.AddRating(selectedProductId, rating);
         SelectProduct(selectedProductId);
     }
-}
+}*@
